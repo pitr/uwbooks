@@ -1,8 +1,10 @@
 <div class='book'>
+  <% if @current_user && book.owned_by(@current_user) %>
   <div class='book_actions'>
     <%= link_to 'Edit', edit_book_path(book) %><br/>
     <%= link_to 'Destroy', book, :confirm => 'Are you sure?', :method => :delete %>
   </div>
+  <% end %>
 
   <span class='book_title'><%= book.title %></span> <span class='book_author'> - <%= book.author %></span>
 
