@@ -2,14 +2,39 @@
 <html>
 <head>
   <title>Uwbooks</title>
-  <%= stylesheet_link_tag :all %>
+  <%= stylesheet_link_tag 'reset', 'text', '960', 'application' %>
   <%= javascript_include_tag '//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js' %>
   <%= javascript_include_tag :all %>
   <%= csrf_meta_tag %>
 </head>
 <body>
 
-<%= yield %>
+  <div class='container_12'>
+    <div id='header' class='grid_3 prefix_2'>
+      <h1>UW fucking books</h1>
+    </div>
+    <div id='login_form' class='grid_5'>
+      <% if current_user %>
+        Sup, <%= current_user.email %>? <%= link_to 'logout', logout_path %>
+      <% else %>
+        <%= render :partial => 'layouts/login_form' %>
+      <% end %>
+    </div>
+
+    <div class='clear'></div>
+
+    <div class='grid_8 prefix_2'>
+      <%= yield %>
+    </div>
+
+    <div class='clear'></div>
+
+    <div id='footer' class='grid12'>
+      NR Aggressive Minimalist Style
+      <br/>
+      &#169; UW Books 2010
+    </div>
+  </div>
 
 </body>
 </html>
