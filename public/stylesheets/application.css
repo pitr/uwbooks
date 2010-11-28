@@ -55,11 +55,12 @@ a:hover {
 }
 
 #content {
-  padding: 20px 0px 40px 0px;
+  padding-top: 20px;
 }
 
 .book {
-  border-bottom: 1px solid #333;
+  border-bottom: 1px dashed #999;
+  margin-bottom: 10px;
 }
 
 .book:last-child {
