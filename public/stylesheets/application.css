@@ -45,6 +45,11 @@ a:hover {
   background: black;
 }
 
+#header h1 {
+  font-family: 'Philosopher', Georgia, arial, serif;
+  font-size: 36px;
+}
+
 #login_form {
   float: right;
 }
