@@ -2,7 +2,7 @@
   <% if current_user %>
     Sup, <%= current_user.email %>? <%= link_to 'logout', logout_path %>
   <% else %>
-    <%= form_for :user_session, :url => user_sessions_path, :method => :create do |f| %>
+    <%= form_for :user_session, :url => login_path, :method => :create do |f| %>
       <%= f.label :email %>
       <%= f.text_field :email, :size => 20 %>
       <%= f.label :password %>

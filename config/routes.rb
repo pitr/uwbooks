@@ -3,7 +3,7 @@ Uwbooks::Application.routes.draw do
 
   resources :books
 
-  resources :user_sessions, :only => [:new, :create, :destroy]
+  post '/login' => 'user_sessions#create'
   get '/login' => 'user_sessions#new', :as => :login
   get '/logout' => 'user_sessions#destroy', :as => :logout
 end
