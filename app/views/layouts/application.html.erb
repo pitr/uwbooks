@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
   <title>Uwbooks</title>
@@ -11,20 +11,19 @@
 
   <div class='container_12'>
     <div id='header' class='grid_3 prefix_2'>
-      <h1>UW fucking books</h1>
+      <h1>UW books</h1>
+      <%= link_to 'Add Book', new_book_path %>
     </div>
-    <div id='login_form' class='grid_5'>
-      <% if current_user %>
-        Sup, <%= current_user.email %>? <%= link_to 'logout', logout_path %>
-      <% else %>
-        <%= render :partial => 'layouts/login_form' %>
-      <% end %>
+    <div class='grid_5'>
+      <%= render :partial => 'layouts/login_form' %>
     </div>
 
     <div class='clear'></div>
 
     <div class='grid_8 prefix_2'>
-      <%= yield %>
+      <div id='content'>
+        <%= yield %>
+      </div>
     </div>
 
     <div class='clear'></div>
@@ -34,6 +33,8 @@
       <br/>
       &#169; UW Books 2010
     </div>
+
+    <div class='clear'></div>
   </div>
 
 </body>
