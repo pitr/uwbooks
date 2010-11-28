@@ -1,0 +1,23 @@
+<div class='book'>
+  <div class='book_actions'>
+    <%= link_to 'Edit', edit_book_path(book) %><br/>
+    <%= link_to 'Destroy', book, :confirm => 'Are you sure?', :method => :delete %>
+  </div>
+
+  <span class='book_title'><%= book.title %></span> <span class='book_author'> - <%= book.author %></span>
+
+  <br/>
+
+  <%= number_to_currency book.price %><br/>
+  <b>Course(s):</b> <%= book.course %><br/>
+  <b>ISBN:</b> <%= book.isbn %>
+
+  <div class='book_description'>
+    <%= simple_format book.description %>
+  </div>
+
+  <div>
+    <!-- image goes here -->
+  </div>
+
+</div>
