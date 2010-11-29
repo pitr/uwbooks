@@ -1,5 +1,5 @@
 <div class='book'>
-  <% if book.owned_by(current_user) %>
+  <% if current_user && book.owned_by(current_user) %>
   <div class='book_actions'>
     <%= link_to 'Edit', edit_book_path(book) %><br/>
     <%= link_to 'Destroy', book, :confirm => 'Are you sure?', :method => :delete %>
