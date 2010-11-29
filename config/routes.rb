@@ -5,6 +5,8 @@ Uwbooks::Application.routes.draw do
     get :mine, :on => :collection, :as => :my
   end
 
+  resource :users
+
   post '/login' => 'user_sessions#create'
   get '/login' => 'user_sessions#new', :as => :login
   get '/logout' => 'user_sessions#destroy', :as => :logout

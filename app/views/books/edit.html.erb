@@ -1,5 +1,10 @@
 <h1>Updating</h1>
 
-<%= render 'form' %>
+<%= form_for @book do |f| %>
+  <%= render :partial => 'form', :locals => {:f => f} %>
+  <div class="actions">
+    <%= f.submit "Save", :disable_with => 'Saving...' %>
+  </div>
+<% end %>
 
 <%= link_to 'Back', my_books_path %>
