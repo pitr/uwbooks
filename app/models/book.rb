@@ -9,7 +9,7 @@ class Book < ActiveRecord::Base
     true
   end
 
-  def owned_by(user)
-    user.exists?(id)
+  def owned_by(a_user)
+    user == a_user
   end
 end

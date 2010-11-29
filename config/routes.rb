@@ -1,7 +1,9 @@
 Uwbooks::Application.routes.draw do
   root :to => "books#index"
 
-  resources :books
+  resources :books do
+    get :mine, :on => :collection, :as => :my
+  end
 
   post '/login' => 'user_sessions#create'
   get '/login' => 'user_sessions#new', :as => :login
