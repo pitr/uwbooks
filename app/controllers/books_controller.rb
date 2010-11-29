@@ -1,9 +1,9 @@
 class BooksController < BaseController
   actions :all, :except => :show
 
-  before_filter :require_user, :only => [:edit, :update, :destory, :mine]
+  before_filter :require_user, :only => [:edit, :update, :destroy, :mine]
 
-  before_filter :ensure_book_is_mine, :only => [:edit, :update, :destory]
+  before_filter :ensure_book_is_mine, :only => [:edit, :update, :destroy]
 
   # CRUD actions
 
