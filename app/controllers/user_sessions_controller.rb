@@ -9,6 +9,7 @@ class UserSessionsController < ApplicationController
   def create
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
+      flash[:notice] = 'Welcome back!'
       redirect_to my_books_path
     else
       render :action => :new
@@ -17,7 +18,7 @@ class UserSessionsController < ApplicationController
 
   def destroy
     current_user_session.destroy
-    flash[:notice] = "Come back again!"
+    flash[:notice] = 'Come back again!'
     redirect_to root_path
   end
 end
