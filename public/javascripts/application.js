@@ -1,5 +1,9 @@
 $(document).ready(function() {
 
+  $('#notice_wrapper').live('click', function() {
+    $(this).fadeOut(800);
+  });
+
   $('.book').live('mouseenter', function() {
     $(this).find('.book_actions').fadeIn(100);
   }).live('mouseleave', function() {

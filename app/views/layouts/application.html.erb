@@ -9,6 +9,16 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
+  <% if flash[:warning] or flash[:notice] %>
+  <a href='#' id='notice_wrapper'>
+    <div id='notice' <%= 'class="warning"' if flash[:warning] %>>
+      <%= flash[:warning] || flash[:notice] %>
+    </div>
+    <script type="text/javascript">
+      setTimeout("$('#notice_wrapper').fadeOut(800);", 5000)
+    </script>
+  </a>
+  <% end %>
 
   <div class='container_12'>
     <div id='header' class='grid_3 prefix_2'>
