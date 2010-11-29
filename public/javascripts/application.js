@@ -2,6 +2,7 @@ $(document).ready(function() {
 
   $('#notice_wrapper').live('click', function() {
     $(this).fadeOut(800);
+    return false;
   });
 
   $('.book').live('mouseenter', function() {
