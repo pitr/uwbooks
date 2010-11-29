@@ -1,6 +1,6 @@
 <% if @user.errors.any? %>
   <div id="error_explanation">
-    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this from being saved:</h2>
+    <h2>We found <%= pluralize(@user.errors.count, "error") %>:</h2>
 
     <ul>
     <% @user.errors.full_messages.each do |msg| %>
@@ -13,19 +13,18 @@
 <%= f.fields_for :books do |f| %>
   <%= render :partial => 'books/form', :locals => {:f => f} %>
 <% end %>
-
 <div class="field">
-  <%= f.label :email %><br />
-  <%= f.text_field :email %>
+  <%= f.label :email %>
+  <%= f.email_field :email %>
 </div>
 <div class="field">
-  <%= f.label :password %><br />
+  <%= f.label :password %>
   <%= f.password_field :password %>
 </div>
 <div class="field">
-  <%= f.label :password_confirmation %><br />
+  <%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation %>
 </div>
 <div class="actions">
-  <%= f.submit %>
+  <%= f.submit "Add Book", :disable_with => 'Adding...' %>
 </div>

@@ -2,6 +2,5 @@
 
 <%= form_for :user_session, :url => login_path, :method => :create do |f| %>
   <%= render :partial => 'form', :locals => {:f => f} %>
-  <br />
   <%= f.submit "Login" %>
 <% end %>

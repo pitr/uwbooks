@@ -45,6 +45,16 @@ body {
   list-style: square;
 }
 
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+.field label {
+  display: block;
+}
+
 a,a:link,a:visited {
   font-size: 12px;
   color: #000;
