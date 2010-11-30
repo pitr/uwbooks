@@ -8,6 +8,7 @@ class BooksController < BaseController
   # CRUD actions
 
   def create
+    @book = current_user.books.new(params[:book])
     create! { my_books_path }
   end
 
@@ -23,12 +24,6 @@ class BooksController < BaseController
 
   def mine
     @books = end_of_association_chain.where(:user_id => current_user.id)
-  end
-
-  # Methods
-
-  def begin_of_association_chain
-    current_user
   end
 
   # Filters
