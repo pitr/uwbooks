@@ -2,4 +2,15 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  flash:
+    books:
+      create:
+        notice: 'Good job! How about posting another one?'
+      update:
+        notice: ''
+      destroy:
+        notice: ''
+        alert: 'This book could not be removed.'
+    users:
+      create:
+        notice: 'Welcome!'
