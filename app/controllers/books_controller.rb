@@ -15,6 +15,10 @@ class BooksController < BaseController
     update! { my_books_path }
   end
 
+  def destroy
+    destroy! { my_books_path }
+  end
+
   # Custom actions
 
   def mine
