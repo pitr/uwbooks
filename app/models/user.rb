@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
     c.require_password_confirmation = false
   end
 
-  has_many :books
+  has_many :books, :dependent => :destroy
 
   accepts_nested_attributes_for :books
 end
