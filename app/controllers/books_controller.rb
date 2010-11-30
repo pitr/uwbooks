@@ -27,6 +27,7 @@ class BooksController < BaseController
   def mine
     @books = end_of_association_chain
       .where(:user_id => current_user.id)
+      .includes(:user)
       .paginate(:page => params[:page])
   end
 
