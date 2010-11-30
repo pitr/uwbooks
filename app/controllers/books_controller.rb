@@ -26,6 +26,15 @@ class BooksController < BaseController
     @books = end_of_association_chain.where(:user_id => current_user.id)
   end
 
+  def remove
+    Book.update(params[:id], :removed => true)
+
+    respond_with do |format|
+      format.html { redirect_to my_books_path }
+      format.js { }
+    end
+  end
+
   # Filters
 
   def ensure_book_is_mine

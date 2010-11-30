@@ -3,6 +3,7 @@ Uwbooks::Application.routes.draw do
 
   resources :books do
     get :mine, :on => :collection, :as => :my
+    put :remove, :on => :member
   end
 
   resource :users
