@@ -5,6 +5,8 @@ class Book < ActiveRecord::Base
 
   validate :isbn_is_valid
 
+  default_scope order('created_at DESC').where(:removed => false)
+
   def isbn_is_valid
     true
   end
