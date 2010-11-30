@@ -10,5 +10,7 @@ gem 'inherited_resources'
 # model
 gem 'ruby-mysql'
 gem 'authlogic'
+gem 'will_paginate'
+
 
 # view

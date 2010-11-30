@@ -1,9 +1,7 @@
 <h2>All Books</h2>
 
-<div class='books'>
+<div id='books'>
 
-<% @books.each do |book| %>
-  <%= render book %>
-<% end %>
+<%= render :partial => 'books', :locals => {:collection => @books} %>
 
 </div>

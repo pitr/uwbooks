@@ -1,6 +1,8 @@
 class BooksController < BaseController
   actions :all, :except => :show
 
+  respond_to :js, :only => [:index, :mine, :remove]
+
   before_filter :require_user, :only => [:edit, :update, :destroy, :mine]
 
   before_filter :ensure_book_is_mine, :only => [:edit, :update, :destroy]
@@ -23,7 +25,9 @@ class BooksController < BaseController
   # Custom actions
 
   def mine
-    @books = end_of_association_chain.where(:user_id => current_user.id)
+    @books = end_of_association_chain
+      .where(:user_id => current_user.id)
+      .paginate(:page => params[:page])
   end
 
   def remove
@@ -33,6 +37,14 @@ class BooksController < BaseController
       format.html { redirect_to my_books_path }
       format.js { }
     end
+  end
+
+  # Methods
+
+  def collection
+    @books = end_of_association_chain.includes(:user)
+    # @books = @books.with_keywords(params[:search]) unless params[:search].blank?
+    @books = @books.paginate(:page => params[:page])
   end
 
   # Filters

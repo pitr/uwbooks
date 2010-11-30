@@ -1,11 +1,9 @@
 <h2>My Books</h2>
 
-<div class='books'>
+<div id='books'>
 
 <%= link_to 'Post more books', new_book_path %>
 
-<% @books.each do |book| %>
-  <%= render book %>
-<% end %>
+<%= render :partial => 'books', :locals => {:collection => @books} %>
 
 </div>
