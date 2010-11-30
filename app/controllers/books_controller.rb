@@ -9,6 +9,12 @@ class BooksController < BaseController
 
   # CRUD actions
 
+  def index
+    @books = end_of_association_chain.includes(:user)
+    # @books = @books.with_keywords(params[:search]) unless params[:search].blank?
+    @books = @books.paginate(:page => params[:page])
+  end
+
   def create
     @book = current_user.books.new(params[:book])
     create! { my_books_path }
@@ -41,12 +47,6 @@ class BooksController < BaseController
   end
 
   # Methods
-
-  def collection
-    @books = end_of_association_chain.includes(:user)
-    # @books = @books.with_keywords(params[:search]) unless params[:search].blank?
-    @books = @books.paginate(:page => params[:page])
-  end
 
   # Filters
 
