@@ -18,8 +18,10 @@ $(document).ready(function() {
     if(!scrollLock && ($(document).height()-$(window).height())-$(window).scrollTop()<=300) {
       scrollLock = true;
       page += 1;
+      $('#pagination_wrapper').fadeIn();
       $.getScript('?page='+page, function() {
         scrollLock = false;
+        $('#pagination_wrapper').fadeOut();
       });
     }
   });
