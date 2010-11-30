@@ -2,7 +2,7 @@
   <% if current_user %>
     Sup, <%= link_to current_user.email, my_books_path %>? <%= link_to 'logout', logout_path %>
   <% else %>
-    <%= link_to 'Add Book', new_users_path %>
+    <%= link_to 'post a book', new_users_path %>
     <%= link_to 'login', login_path %>
   <% end %>
 </div>

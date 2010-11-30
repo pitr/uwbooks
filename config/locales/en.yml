@@ -13,4 +13,4 @@ en:
         alert: 'This book could not be removed.'
     users:
       create:
-        notice: 'Welcome!'
+        notice: 'Welcome! Post as many books as you want.'

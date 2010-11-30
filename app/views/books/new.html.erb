@@ -1,9 +1,9 @@
-<h1>Adding Books</h1>
+<h1>Posting Books</h1>
 
 <%= form_for @book do |f| %>
   <%= render :partial => 'books/form', :locals => {:f => f} %>
   <div class="actions">
-    <%= f.submit "Add Book", :disable_with => 'Adding...' %>
+    <%= f.submit "Post Book", :disable_with => 'Posting...' %>
   </div>
 <% end %>
 
