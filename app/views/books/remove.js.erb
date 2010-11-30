@@ -1,1 +1,1 @@
-$('#book_<%= params[:id] %>').hide().remove();
+$('#book_<%= params[:id] %>').slideUp(function(){$(this).remove()});
