@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+
+User.delete_all
+Book.delete_all # all books should be deleted already
+
+user = User.create(:email => 'pitr.vern@gmail.com', :password => 'testtest')
+
+100.times { user.books.create(:author => 'Some Author') }
