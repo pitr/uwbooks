@@ -21,6 +21,12 @@ class BooksController < BaseController
     @books = end_of_association_chain.where(:user_id => current_user.id)
   end
 
+  # Methods
+
+  def begin_of_association_chain
+    current_user
+  end
+
   # Filters
 
   def ensure_book_is_mine
