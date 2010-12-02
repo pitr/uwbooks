@@ -1,8 +1,8 @@
 + fix book sorting issue
 + add validations to books
++ make better 404/500 pages
+- add smtp support
 - add forgot password and change password features
 - valid isbn
 - add google books images
-- add smtp support
-- make better 404/500 pages
 - add search
