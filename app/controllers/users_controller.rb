@@ -21,6 +21,9 @@ class UsersController < BaseController
     user_session = UserSession.new(params[:user])
     if user_session.save
       @user = user_session.user
+
+      UserMailer.signup(@user).deliver
+
       @book = @user.books.new(params[:user][:books_attributes]['0'])
       if @book.save
         redirect_to my_books_path
