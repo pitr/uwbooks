@@ -22,8 +22,6 @@ class UsersController < BaseController
     if user_session.save
       @user = user_session.user
 
-      UserMailer.signup(@user).deliver
-
       @book = @user.books.new(params[:user][:books_attributes]['0'])
       if @book.save
         redirect_to my_books_path
@@ -32,7 +30,13 @@ class UsersController < BaseController
       end
     else
       # fall back to creating the user
-      create! { my_books_path }
+      @user = User.new(params[:user])
+      if @user.save
+        UserMailer.signup(@user).deliver
+        redirect_to my_books_path
+      else
+        render :action => 'create'
+      end
     end
   end
 
