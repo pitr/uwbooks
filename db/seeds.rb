@@ -11,4 +11,4 @@ Book.delete_all # all books should be deleted already
 
 user = User.create(:email => 'pitr.vern@gmail.com', :password => 'testtest')
 
-400.times {|i| user.books.create(:author => 'Some Author', :title => i.to_s, :created_at => (Time.now + i.minutes)) }
+100.times {|i| user.books.create(:author => 'Some Author', :title => i.to_s, :price => 99.99, :created_at => (Time.now + i.minutes)) }

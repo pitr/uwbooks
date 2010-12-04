@@ -1,3 +1,4 @@
+// Scroller
 (function( $ ){
   var page = 1;
 
@@ -10,7 +11,6 @@
           $('#pagination_wrapper').fadeIn();
           $.getScript('?page='+page, function() {
             $('#pagination_wrapper').fadeOut();
-            $.scroller();
           });
         }
       });

@@ -1,4 +1,4 @@
 <% unless @books.empty? %>
 $('#books').append($('<%= escape_javascript(render :partial => 'books', :locals => {:collection => @books}) %>'));
-scrollLock = false;
+$.scroller();
 <% end %>
