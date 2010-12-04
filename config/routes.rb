@@ -6,7 +6,7 @@ Uwbooks::Application.routes.draw do
     put :remove, :on => :member
   end
 
-  resource :users
+  resource :users, :except => :destroy
 
   post '/login' => 'user_sessions#create'
   get '/login' => 'user_sessions#new', :as => :login
