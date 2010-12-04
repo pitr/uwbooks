@@ -1,3 +1,9 @@
+<%= content_for :js do %>
+<script type="text/javascript" charset="utf-8">
+  $.scroller();
+</script>
+<% end if @books.total_pages > 1 %>
+
 <h2>All Books</h2>
 
 <div id='books'>
