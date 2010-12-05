@@ -29,13 +29,19 @@ class UsersController < BaseController
         render 'books/new'
       end
     else
-      # fall back to creating the user
-      @user = User.new(params[:user])
-      if @user.save
-        UserMailer.signup(@user).deliver
-        redirect_to my_books_path
+      if User.find_by_email(params[:user][:email])
+        @user = User.new(params[:user])
+        @user.errors[:password] = 'is incorrect.'
+        render :action => 'new'
       else
-        render :action => 'create'
+        # fall back to creating the user
+        @user = User.new(params[:user])
+        if @user.save
+          UserMailer.signup(@user).deliver
+          redirect_to my_books_path
+        else
+          render :action => 'new'
+        end
       end
     end
   end
