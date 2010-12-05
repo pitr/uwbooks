@@ -6,7 +6,7 @@
   <%= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Philosopher&subset=latin' %>
   <%= javascript_include_tag '//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js' %>
   <%= javascript_include_tag 'jquery-1.4.4.min' if Rails.env.development? %>
-  <%= javascript_include_tag 'rails', 'application' %>
+  <%= javascript_include_tag 'rails', 'isbn', 'application' %>
   <%= yield :js %>
   <%= csrf_meta_tag %>
 </head>
