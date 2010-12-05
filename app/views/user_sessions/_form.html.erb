@@ -1,3 +1,15 @@
+<% if @user_session.errors.any? %>
+  <div id="error_explanation">
+    <h2>We found <%= pluralize(@user_session.errors.count, "error") %>:</h2>
+
+    <ul>
+    <% @user_session.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <div class="field">
   <%= f.label :email %>
   <%= f.email_field :email %><br />
