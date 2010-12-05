@@ -1,3 +1,15 @@
+// ISBN callback
+function listEntries(booksInfo) {
+  // Create a DIV for each book
+  if(booksInfo.responseData.results.length < 1) return;
+
+  var book = booksInfo.responseData.results[0];
+
+  $("#user_books_attributes_0_title").val(book.titleNoFormatting)
+  $("#user_books_attributes_0_author").val(book.authors)
+  $('#thumb').attr('src', book.tbUrl);
+}
+
 // Scroller
 (function( $ ){
   var page = 1;
@@ -34,6 +46,26 @@ $(document).ready(function() {
   // notice wrapper click
   $('#notice_wrapper').live('click', function() {
     $(this).slideUp();
+    return false;
+  });
+
+  $("#user_books_attributes_0_isbn").live('focusout', function(){
+    var isbn = ISBN.parse($(this).val());
+    if(!isbn || !isbn.isValid()) {
+        return;
+    }
+
+    $(this).val(isbn.isIsbn10() ? isbn.asIsbn10(true) : isbn.asIsbn13(true));
+
+    var scriptElement = document.createElement("script");
+    scriptElement.setAttribute("id", "jsonScript");
+    //scriptElement.setAttribute("src","http://books.google.com/books?bibkeys=" + escape($("#isbn").val()));
+    scriptElement.setAttribute("src","https://ajax.googleapis.com/ajax/services/search/books?v=1.0&q=" +
+      escape(isbn.asIsbn13()) +
+      "&callback=listEntries");
+    scriptElement.setAttribute("type", "text/javascript");
+    document.documentElement.firstChild.appendChild(scriptElement);
+
     return false;
   });
 
