@@ -5,8 +5,8 @@ function listEntries(booksInfo) {
 
   var book = booksInfo.responseData.results[0];
 
-  $("#user_books_attributes_0_title").val(book.titleNoFormatting)
-  $("#user_books_attributes_0_author").val(book.authors)
+  if($("#books_title").val() == '')   $("#books_title").val(book.titleNoFormatting);
+  if($("#books_author").val() == '')  $("#books_author").val(book.authors);
   $('#thumb').attr('src', book.tbUrl);
 }
 
@@ -49,8 +49,8 @@ $(document).ready(function() {
     return false;
   });
 
-  $("#user_books_attributes_0_isbn").live('focusout', function(){
-    var isbn = ISBN.parse($(this).val());
+  $("#books_isbn").live('focusout', function(){
+    var isbn = ISBN.parse($(this).val().replace(/[- _]/g, ''));
     if(!isbn || !isbn.isValid()) {
         return;
     }
